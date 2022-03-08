@@ -101,7 +101,7 @@ router.post("/signup", function (req, res, next) {
                   email: email,
                   name: fullname,
                   user: createduser._id,
-                  amount: "100",
+                  amount: "0",
                   image: "",
                 })
                   .then(function (profile) {
@@ -113,7 +113,7 @@ router.post("/signup", function (req, res, next) {
                       token: token,
                       fullname: fullname,
                       email: createduser._doc.email,
-                      amount: "100",
+                      amount: "0",
                       image: "",
                     });
                   })
