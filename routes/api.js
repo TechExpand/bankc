@@ -183,15 +183,15 @@ router.get("/profile/:userid", function (req, res, next) {
 });
 
 //edit a particular profile
-router.put("/profile", checkAuth, function (req, res, next) {
+router.put("/profile", function (req, res, next) {
   Profile.updateOne(
-    { user: req.user },
+    { user: req.body.user },
     req.body,
     function (err, docs) {
       if (err) {
         res.status(400).send({ message: "failed to update" });
       } else {
-        Profile.findOne({ user: req.user }).then(function (data) {
+        Profile.findOne({ user: req.body.user }).then(function (data) {
           res.send(data);
         });
       }
